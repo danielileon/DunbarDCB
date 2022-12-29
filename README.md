@@ -1,4 +1,4 @@
-# DunbarDCB
+# Dunbar (Discovering Communities in the Borderlands)
 
 **Daniel I. Leon**
 
