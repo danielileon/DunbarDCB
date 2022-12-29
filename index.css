@@ -1,0 +1,402 @@
+/* Colors:
+  Academic Green: #00642c
+  Golden Yellow:  #ea8200
+  Carmine Red:    #cc2828
+  Warm Eggplant:  #680030
+  Blue Magenta:   #2f1b94
+  Pink:           #e73f78
+  Cyan:           #21b5db
+  Caramel Brown:  #73502e
+  Warm Black:     #232122
+  Vintage Cream:  #dbced1
+*/
+
+/*@import url(//db.onlinewebfonts.com/c/f3f28b23c2b5d5e8eff9d74e7c179fac?family=Paysage);*/
+/*@font-face {*/
+/*  font-family: "paysage";*/
+/*  src: url("//db.onlinewebfonts.com/t/f3f28b23c2b5d5e8eff9d74e7c179fac.eot");*/
+/*  src: url("//db.onlinewebfonts.com/t/f3f28b23c2b5d5e8eff9d74e7c179fac.eot?#iefix") format("embedded-opentype"),*/
+/*       url("//db.onlinewebfonts.com/t/f3f28b23c2b5d5e8eff9d74e7c179fac.woff2") format("woff2"),*/
+/*       url("//db.onlinewebfonts.com/t/f3f28b23c2b5d5e8eff9d74e7c179fac.woff") format("woff"),*/
+/*       url("//db.onlinewebfonts.com/t/f3f28b23c2b5d5e8eff9d74e7c179fac.ttf") format("truetype"),*/
+/*       url("//db.onlinewebfonts.com/t/f3f28b23c2b5d5e8eff9d74e7c179fac.svg#Paysage") format("svg");*/
+/*}*/
+
+/*body {*/
+/*  font-family: paysage sans-serif;*/
+/*}*/
+
+/* NEED TO CREDIT AUTHOR: Sandrine Nugue*/
+/*@import url(//db.onlinewebfonts.com/c/b789194225daf4e696a9e123c23f2de8?family=Infini);*/
+@font-face {
+    font-family: "Infini"; 
+    src: url("//db.onlinewebfonts.com/t/b789194225daf4e696a9e123c23f2de8.eot"); 
+    src: url("//db.onlinewebfonts.com/t/b789194225daf4e696a9e123c23f2de8.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/b789194225daf4e696a9e123c23f2de8.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/b789194225daf4e696a9e123c23f2de8.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/b789194225daf4e696a9e123c23f2de8.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/b789194225daf4e696a9e123c23f2de8.svg#Infini") format("svg"); 
+  }
+  
+  /* NEED TO CREDIT AUTHOR: Paul D. Hunt*/
+  /*@import url(//db.onlinewebfonts.com/c/982386e2d4b16d8a061d83647e35c39c?family=Source+Sans+Pro);*/
+  @font-face {
+    font-family: "Source Sans Pro"; 
+    src: url("//db.onlinewebfonts.com/t/982386e2d4b16d8a061d83647e35c39c.eot"); 
+    src: url("//db.onlinewebfonts.com/t/982386e2d4b16d8a061d83647e35c39c.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/982386e2d4b16d8a061d83647e35c39c.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/982386e2d4b16d8a061d83647e35c39c.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/982386e2d4b16d8a061d83647e35c39c.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/982386e2d4b16d8a061d83647e35c39c.svg#Source Sans Pro") format("svg"); 
+  }
+  
+  body {
+    font-family: Source Sans Pro;
+    font-size: 100%;
+    font-weight: bold;
+    text-shadow:
+      0 0 7px #FFFFFF;
+  }
+  
+  #initialPopup {
+    z-index: 10;
+    width: 65vw;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /*background-color: #dbced1;*/
+  }
+  
+  #slidesBackground {
+    position: absolute;
+    z-index: -1;
+    bottom: 0%;
+    right: 5%;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #dialogueContainer {
+      overflow:hidden;
+  }
+  
+  #dialogueSlider {
+    display: flex;
+    width: calc(4 * 100%);
+    transition: margin-left linear 0.3s;
+  }
+  
+  #dialogueSlider p {
+    min-width: calc(100% / 4);
+    width: calc(100% / 4);
+    margin-right: calc(100% / 4 * 0.3);   /* Adds an extra 30% margin between each <p>*/
+    text-align: left;
+  }
+  
+  /*.swipeButton {*/
+  /*  display: inline;*/
+  /*  height: 1em;*/
+  /*}*/
+  
+  #swipeLeftButton {
+    float: left;
+  }
+  
+  #swipeRightButton {
+    float: right;
+  }
+  
+  /* for swipe left/right buttons on the instruction popup */
+  input:disabled {
+    opacity: 0.3;
+  }
+  
+  #beginTourButton {
+      display: block;
+      margin: auto;
+  }
+  
+  /* Centers an element horizontally and vertically inside of its parent */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #linkButtonsTable {
+    position: absolute;
+    z-index: 10;
+    top: 20;
+    right: 0;
+    visibility: hidden;
+  }
+  
+  #controlButtonsTable {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    /*padding: 0.8em;*/
+    table-layout: fixed;
+    /*background-color: rgba(226, 204, 255, 0.8);*/
+    margin: 20px;
+    
+    visibility: hidden;    /* Starts invisible and goes visible once the tour starts */
+  }
+  
+  #controlButtonsTable td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  #tableBackground {
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    visibility: hidden;
+  }
+  
+  .controlIcon {
+    height: 2.4em;
+    width: 2.4em;
+    border: 3px solid black;
+    margin-right: 1em;
+    padding: 0.3em;
+  }
+  
+  .linksContainer {
+    position: relative;
+    color: #232122;
+  }
+  
+  .externalLinks {
+    height: 5%;
+    width: 80%;
+  }
+  
+  .linkText {
+    /*font-family: 'Source Sans Pro';*/
+    font-family: 'Infini';
+    font-size: 100%;
+    font-weight: bold;
+    text-shadow:
+      0 0 7px #FFFFFF,
+      0 0 10px #FFFFFF,
+      0 0 21px #FFFFFF,
+      0 0 42px #FFFFFF,
+      0 0 82px #FFFFFF,
+      0 0 92px #FFFFFF,
+      0 0 102px #FFFFFF,
+      0 0 151px #FFFFFF;
+    
+  
+    /* taken from https://www.w3schools.com/howto/howto_css_image_text.asp*/
+    width: 20%;
+    position: absolute;
+    bottom: 50%;
+    transform: translate(90%, 33%);
+  }
+  
+  .linkText_2 {
+    /*font-family: 'Source Sans Pro';*/
+    font-family: 'Infini';
+    font-size: 100%;
+    font-weight: bold;
+    text-shadow:
+      0 0 7px #FFFFFF,
+      0 0 10px #FFFFFF,
+      0 0 21px #FFFFFF,
+      0 0 42px #FFFFFF,
+      0 0 82px #FFFFFF,
+      0 0 92px #FFFFFF,
+      0 0 102px #FFFFFF,
+      0 0 151px #FFFFFF;
+    
+  
+    /* taken from https://www.w3schools.com/howto/howto_css_image_text.asp*/
+    width: 20%;
+    position: absolute;
+    bottom: 50%;
+    transform: translate(110%, 20%);
+  }
+  
+  .controlText {
+    color: #dbced1;
+    font-size: 1.2em;
+    font-weight:bold;
+    text-shadow:
+      /*0 0 7px #FFFFFF,
+      0 0 10px #FFFFFF,
+      0 0 21px #FFFFFF,
+      0 0 42px #FFFFFF,
+      0 0 82px #FFFFFF,
+      0 0 92px #FFFFFF,
+      0 0 102px #FFFFFF,
+      0 0 151px #FFFFFF;*/
+  
+      0 0 2px #000000,
+      0 0 7px #000000,
+      0 0 10px #000000,
+      0 0 21px #000000,
+      0 0 42px #000000,
+      0 0 82px #000000,
+      0 0 92px #000000,
+      0 0 102px #000000,
+      0 0 151px #000000;
+  }
+  
+  .nextText {
+    color: #dbced1;
+    font-size: 0.8em;
+    font-weight:bold;
+    text-shadow:
+      /*0 0 7px #FFFFFF,
+      0 0 10px #FFFFFF,
+      0 0 21px #FFFFFF,
+      0 0 42px #FFFFFF,
+      0 0 82px #FFFFFF,
+      0 0 92px #FFFFFF,
+      0 0 102px #FFFFFF,
+      0 0 151px #FFFFFF;*/
+  
+      0 0 2px #000000,
+      0 0 7px #000000,
+      0 0 10px #000000,
+      0 0 21px #000000,
+      0 0 42px #000000,
+      0 0 82px #000000,
+      0 0 92px #000000,
+      0 0 102px #000000,
+      0 0 151px #000000;
+  }
+  
+  #imageInfoContainer {
+    position: absolute;
+    top: 4vmin;
+    right: 4vmin;
+    max-width: 65vw;
+    z-index: 10;
+    padding: 0;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 20px 0px 20px 0px;
+    overflow: hidden;
+  
+    /* Used for setting opacity with fading in/out */
+    /* Yoinked from https://stackoverflow.com/a/11660739/18265640 */
+    opacity: 0;
+    transition:opacity .4s linear;
+  }
+  
+  #imageInfoContainer.fadeIn {
+    opacity: .8;
+  }
+  
+  #imageInfoContainer.fadeOut {
+    opacity: 0;
+  }
+  
+  #imageInfoBar {
+    top: 0;
+    left: 0;
+    padding: .8em 0;
+    width: 100%;
+    background-color: cyan;
+  }
+  
+  #imageInfoTitle {
+    font-weight: bold;
+    margin-left: 1em;
+    user-select: none;
+  }
+  
+  #expandCollapse {
+    position: absolute;
+    top: .45em;
+    right: 1em;
+    font-size: 1.3em;
+    user-select: none;
+  }
+  
+  #infoContent {
+      display: block;
+      max-height: 0;
+      overflow-y: scroll;
+      transition: max-height 0.20s ease-out;
+      
+      /* Light parchment color (looks bad since icons have a white background) */
+      /*background-color: #F3E3C5;*/
+  }
+  
+  .firstImageInfoSection {
+      margin-top: .8em;
+  }
+  
+  .imageInfoSection {
+    margin-top: 1.6em;
+    margin-bottom: .8em;
+  }
+  
+  .firstImageInfoSection, .imageInfoSection {
+      margin-left: 1em;
+      margin-right: 1em;
+  }
+  
+  .infoIcon {
+    height: 1.3em;
+    width: 1.3em;
+    vertical-align: middle;
+  }
+  
+  .infoField {
+      margin-left: 1em;
+  }
+  
+  #container {
+    position: absolute;
+    max-height: 50vh;
+    left: 10%;
+    right: 10%;
+    bottom: -2vh;
+    border-radius: 2vh;
+    padding: 1vh 2vh 3vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    background-color: white;
+    transition: 0.35s;
+  }
+  
+  #container.collapsed {
+    transform: translateY(10%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #contents {
+    height: 100%;
+    overflow-y: scroll;
+    text-align: justify;
+    font-size: 0.8rem;
+    flex-grow: 1;
+  }
+  
+  #contents h1 {
+    text-align: left;
+  }
+  
+  .outer {
+    flex: 0 0 auto;
+  }
+  
+  #closeButton {
+    float: right;
+    padding: 0.25em;
+  }
+  

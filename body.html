@@ -1,0 +1,284 @@
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
+
+<!-- Div with initial popup on-load -->
+
+
+<div id="initialPopup" class="centered">
+    <img src="assets/backgrounds/SlidesBackground.png" id="slidesBackground">
+    <div id="dialogueContainer">
+        <div id="dialogueSlider">
+            <p>
+              Thank you for joining us for Discovering
+              Community in the Borderlands. This is the
+              Dunbar site, one of many across the city.
+            </p>
+            <!--<p>-->
+            <!--  This is an interactive AR experience, which-->
+            <!--  means you will use your phone's camera to see-->
+            <!--  hidden histories and learn about Tucson's culture.-->
+            <!--</p>-->
+            <!--<p>-->
+            <!--  The experience winds along the corner towards-->
+            <!--  the Dunbar School building; it will begin with-->
+            <!--  a video introduction to the experience.-->
+            <!--</p>-->
+            <!--<p>-->
+            <!--  Once you have watched the video, click on-->
+            <!--  the three buttons to the side of the video,-->
+            <!--  starting with the Photo Gallery.-->
+            <!--</p>-->
+            <!--<p>-->
+            <!--  Use your device's "back" button to return-->
+            <!--  here once you are done with each of these-->
+            <!--  three portions of the experience.-->
+            <!--</p>-->
+        </div>
+    </div>
+    <!--<input type="image" id="swipeLeftButton" src="assets/swipe-left.png" alt="Previous" disabled class="swipeButton" onclick="slideLeft();">-->
+    <!--<input type="image" id="swipeRightButton" src="assets/swipe-right.png" alt="Next" class="swipeButton" onclick="slideRight();">-->
+    <button id="beginTourButton">Begin Tour</button>
+  </div>
+  
+  <table id="linkButtonsTable" width="40%">
+     <tr rowspan="10%">
+       <td>
+         <img src="assets/TopTransparent.png" class="externalLinks">
+       </td>
+     </tr>
+     <tr rowspan="10%">
+       <td>
+         <img src="assets/TopTransparent.png" class="externalLinks">
+       </td>
+     </tr>
+     <tr>
+      <td>
+        <a href="https://ar.blippar.com/9fgiitxvogztyizij0ww2j5eb2a73r2da219re10">
+          <!--<input type="button" id="worldcastButton" class="externalLinks" value="Photo Gallery" />-->
+          <div class="linksContainer">
+            <img src="assets/backgrounds/Button1.png" id="worldcastButton" class="externalLinks">
+            <!--<div class="linkText">Photo Gallery</div>-->
+          </div>
+        </a>
+      </td>
+    </tr>
+    <tr class="nextText">
+      <td>
+        Click here 
+        to move on!
+      </td>
+    </tr>
+     <!--<tr rowspan="10%">-->
+     <!--  <td>-->
+     <!--    <img src="assets/Transparent.png" class="externalLinks">-->
+     <!--  </td>-->
+     <!--</tr>-->
+    <!--<tr>-->
+    <!--  <td>-->
+    <!--    <a href="https://ar.blippar.com/66cp2qtinyqketw1x2liusw7kuyik2e5p1t9yz29">-->
+          <!--<input type="button" id="poemButton" class="externalLinks" value="Poem" />-->
+    <!--      <div class="linksContainer">-->
+    <!--        <img src="assets/backgrounds/Button2.png" id="peomButton" class="externalLinks">-->
+            <!--<div class="linkText_2">Poem</div>-->
+    <!--      </div>-->
+    <!--    </a>-->
+    <!--  </td>-->
+    <!--</tr>-->
+     <!--<tr rowspan="10%">-->
+     <!--  <td>-->
+     <!--    <img src="assets/Transparent.png" class="externalLinks">-->
+     <!--  </td>-->
+     <!--</tr>-->
+    <!--<tr>-->
+    <!--  <td>-->
+    <!--    <a href="https://www.youtube.com/watch?v=vdKUa0fBgW4&feature=youtu.be">-->
+          <!--<input type="button" id="youtubeButton" class="externalLinks" value="360 Video" />-->
+    <!--      <div class="linksContainer">-->
+    <!--        <img src="assets/backgrounds/Button3.png" id="youtubeButton" class="externalLinks">-->
+            <!--<div class="linkText">360 Video</div>-->
+    <!--      </div>-->
+    <!--    </a>-->
+    <!--  </td>-->
+    <!--</tr>-->
+  </table>
+  
+  <img src="assets/backgrounds/TableBackground.png" id="tableBackground">
+  
+  <table id="controlButtonsTable" width="100%">
+   
+    
+    <tr>
+      <td colspan="10%"></td>
+      <td colspan="40%">
+        <input type="image" id="welcomeVideoButton" class="controlIcon" src="assets/icons/play-icon.png" />
+      </td>
+      <!--  Declaration Video moved to WorldCast as audio. -->
+      <!--<td>-->
+      <!--  <input type="image" id="declarationVideoButton" class="controlIcon" src="assets/icons/play-icon.png" />-->
+      <!--</td>-->
+      <td colspan="40%">
+        <input type="image" id="closeVideoButton" class="controlIcon" src="assets/icons/close-icon.png" />
+      </td>
+      <td colspan="10%"></td>
+    </tr>
+    <tr class="controlText">
+      <td colspan="7%"></td>
+      <td colspan="40%">
+        Welcome
+      </td>
+      <!-- Declaration video moved to WorldCast as audio. -->
+      <!--<td>-->
+      <!--  Declaration-->
+      <!--</td>-->
+      <td colspan="40%">
+        Close Video
+      </td>
+      <td colspan="13%"></td>
+    </tr>
+  </table>
+  
+  
+  <div id="imageInfoContainer">
+  
+    <!-- Div containing the clickable title bar of the info container -->
+    <div id="imageInfoBar" onclick="toggleInfoCollapse();">
+      <span id="imageInfoTitle">Image Info</span>
+      <span id="expandCollapse">+</span>
+    </div>
+  
+    <!-- Div containing the information about the photo -->
+    <div id="infoContent" wasexpanded="false">
+        <div class="firstImageInfoSection">
+          <b>People Pictured</b>
+          <br>
+          (left to right, top to bottom)
+          <hr>
+          <div id="people">
+            <img class="infoIcon" src="assets/icons/person-icon.png">
+            <span class="infoField">Person 1</span>
+            <br>
+            <img class="infoIcon" src="assets/icons/person-icon.png">
+            <span class="infoField">Person 2</span>
+            <br>
+          </div>
+        </div>
+  
+        <div class="imageInfoSection">
+          <b>Location</b>
+          <hr>
+          <img class="infoIcon" src="assets/icons/location-icon.png">
+          <span id="location" class="infoField">Phoenix, Arizona</span>
+        </div>
+  
+        <div class="imageInfoSection">
+          <b>Date</b>
+          <hr>
+          <img class="infoIcon" src="assets/icons/calendar-icon.png">
+          <span id="date" class="infoField">October 17, 1979</span>
+        </div>
+  
+        <!-- TODO: remove photographer section -->
+        <!--<div class="imageInfoSection">-->
+        <!--  <b>Photographer</b>-->
+        <!--  <hr>-->
+        <!--  <img class="infoIcon" src="assets/icons/camera-icon.png">-->
+        <!--  <span id="photographer" class="infoField">Photographer name</span>-->
+        <!--</div>-->
+  
+        <!-- TODO: have description metadata? -->
+        <!--<div class="imageInfoSection">-->
+        <!--  <b>Description</b>-->
+        <!--  <hr>-->
+        <!--  <img class="infoIcon" src="assets/icons/description-icon.png">-->
+        <!--  <span id="description" class="infoField">This picture was taken of people in the Dunbar Community.</span>-->
+        <!--</div>-->
+    </div>
+  
+  </div>
+  
+  
+  <!-- TODO: delete since won't have photographer information -->
+  <!-- Will pop up for photographer data-->
+  <!--<div id="container" class="collapsed">-->
+  <!--  <div class="outer">-->
+  <!--    <div id="closeButton" onclick="document.getElementById('container').classList.add('collapsed')">close</div>-->
+  <!--  </div>-->
+    <!--  Will have title, image and info-->
+  <!--  <div id="contents"></div>-->
+  <!--  <div class="outer">Article provided by Wikipedia</div>-->
+  <!--</div>-->
+  
+  
+  <a-scene
+    xrextras-generate-image-targets="primitive: artgallery-frame"
+    xrextras-almost-there
+    xrextras-loading
+    xrextras-runtime-error
+    xrextras-gesture-detector
+    renderer="antialias: true; colorManagement: true"
+    xrweb="disableWorldTracking: true">
+  
+    <a-assets>
+      <a-asset-item id="frame-model" src="assets/scans/scanOne.glb"></a-asset-item>
+      <a-asset-item id="frame-model2" src="assets/scans/scanTwo.glb"></a-asset-item>
+      <a-asset-item id="frame-model3" src="assets/scans/scanThree.glb"></a-asset-item>
+      <a-asset-item id="frame-model4" src="assets/scans/scanFour.glb"></a-asset-item>
+      <a-asset-item id="frame-model5" src="assets/scans/scanFive.glb"></a-asset-item>
+      <a-asset-item id="prism01" src="assets/prisms/Dunbar_Prism_01.glb"></a-asset-item>
+      <a-asset-item id="prism03" src="assets/prisms/Dunbar_Prism_03.glb"></a-asset-item>
+      <img id="blob-shadow" src="assets/blob-shadow.png">
+  
+      <!-- Welcome video -->
+      <!-- Yoinked from https://holox.nextechar.com/x?drc/0e39f6e1-4888-491e-a86c-b44ce7f89dbc -->
+      <video
+        id="dunbar-welcome-alpha-video"
+        playsinline
+        crossorigin="anonymous"
+        src="assets/videos/dunbar-welcome-video-normalized-cropped.mp4">
+      </video>
+  
+      <!-- Declaration video -->
+      <!-- Yoinked from https://holox.nextechar.com/x?drc/a299d197-90f4-4b3f-8e5a-bf1077ebf349 -->
+      <video
+        id="dunbar-declaration-alpha-video"
+        playsinline
+        crossorigin="anonymous"
+        src="assets/videos/dunbar-declaration-video-normalized-cropped.mp4">
+      </video>
+    </a-assets>
+  
+    <a-camera
+      id="camera"
+      position="0 1.6 0"
+      raycaster="objects: .cantap"
+      cursor="fuse:false; rayOrigin:mouse;">
+  
+      <!-- Dunbar Welcome video -->
+      <a-entity
+        id="alpha-video-entity"
+        video-control
+        visible="false"
+        material="shader: chromakey; src: #dunbar-welcome-alpha-video; color: 0 0.843 0"
+        geometry="primitive: plane; height: 16; width: 9;"
+        xrextras-pinch-scale
+        position="-0.4 -0.6 -2"
+        scale=".125 .125 .125">
+  
+        <!--Shadow underneath speaker -->
+        <!--Example for video with shadow: https://www.8thwall.com/playground/alpha-video-slam-aframe/code/body.html -->
+        <a-circle
+          position="0.08 -7.5 -0.8"
+          rotation="-90 0 0"
+          scale="6 3.4 7"
+          radius="0.6"
+          material="src: #blob-shadow; opacity: 0.65; roughness: 0.8; metalness: 0;">
+        </a-circle>
+  
+      </a-entity>
+  
+    </a-camera>
+    
+    <a-light type="ambient" intensity="1"></a-light>
+    <a-light type="directional" intensity="0" position="1.5 2.5 0.6"></a-light>
+  
+  </a-scene>

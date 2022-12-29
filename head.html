@@ -1,0 +1,108 @@
+<!-- Copyright (c) 2022 8th Wall, Inc. -->
+<!-- head.html is optional; elements will be added to your html head before app.js is loaded. -->
+
+<!-- Use "8thwall:" meta tags to hook into 8th Wall's build process and developer tools. -->
+<meta name="8thwall:renderer" content="aframe:1.1.0">
+<meta name="8thwall:package" content="@8thwall.xrextras">
+
+<!-- Other external scripts and meta tags can also be added. -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script src="//cdn.8thwall.com/web/aframe/aframe-chromakey-material-1.1.1.min.js"></script>
+
+
+<link href="//db.onlinewebfonts.com/c/f3f28b23c2b5d5e8eff9d74e7c179fac?family=Paysage" rel="stylesheet" type="text/css"/>
+<link href="//db.onlinewebfonts.com/c/b789194225daf4e696a9e123c23f2de8?family=Infini" rel="stylesheet" type="text/css"/>
+<link href="//db.onlinewebfonts.com/c/982386e2d4b16d8a061d83647e35c39c?family=Source+Sans+Pro" rel="stylesheet" type="text/css"/>
+<!--<link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>-->
+<!--<link href='https://www.fontsquirrel.com/fonts/infini/css/family=Infini' rel=stylesheet>-->
+
+<!-- Informational popup stuff -->
+<script>
+
+  // Clamps the value between minVal and maxVal, inclusive
+  function clamp(val, minVal, maxVal) {
+      if (val < minVal) {
+          return minVal;
+      } else if (val > maxVal) {
+          return maxVal;
+      } else {
+          return val;
+      }
+  }
+
+  let popupTextNum = 0;
+  const NUM_TEXTS = 1;
+
+  function disableButton() {
+    if (popupTextNum === 0) {
+      swipeLeftButton.disabled = true;
+    } else {
+      swipeLeftButton.disabled = false;
+    }
+
+    if (popupTextNum === NUM_TEXTS - 1) {
+      swipeRightButton.disabled = true;
+    } else {
+      swipeRightButton.disabled = false;
+    }
+  }
+
+  // Slides the info text left
+  function slideLeft() {
+    popupTextNum = clamp(popupTextNum - 1, 0, NUM_TEXTS - 1);
+    dialogueSlider.style.marginLeft = `-${popupTextNum * 130}%`;
+    disableButton()
+  }
+
+  // Slides the info text right
+  function slideRight() {
+    popupTextNum = clamp(popupTextNum + 1, 0, NUM_TEXTS - 1);
+    dialogueSlider.style.marginLeft = `-${popupTextNum * 130}%`;
+    disableButton()
+  }
+  
+</script>
+
+<!-- Control Buttons -->
+<!--<script>-->
+
+<!--  function changeButton(myButton) {-->
+<!--    myButton.src = "assets/Button.png";-->
+<!--  }-->
+  
+<!--</script>-->
+
+<!-- Info container stuff -->
+<script>
+  screen.orientation.lock("portrait-primary")
+
+  // Collapses the info container
+  function collapseInfo() {
+    const content = document.getElementById('infoContent');
+    const indicator = document.getElementById('expandCollapse');
+    content.style.maxHeight = null;
+    indicator.textContent = '+'
+  }
+
+  // Expands the info container
+  function expandInfo() {
+    const content = document.getElementById('infoContent');
+    const indicator = document.getElementById('expandCollapse');
+    content.style.maxHeight = '50vh';
+    indicator.textContent = '–'
+  }
+
+  // Toggles between collapsed and expanded info container
+  function toggleInfoCollapse() {
+    const content = document.getElementById('infoContent');
+    if (content.style.maxHeight) {
+      // Collapse the info
+      content.setAttribute('wasexpanded', 'false');
+      collapseInfo();
+    } else {
+      // Expand the info
+      content.setAttribute('wasexpanded', 'true');
+      expandInfo();
+    }
+  }
+</script>
